@@ -1,0 +1,24 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 22
+    commands:
+      - echo "Installation des dépendances..."
+      - npm install
+  pre_build:
+    commands:
+      - echo "Création du fichier .env"
+      - echo "VITE_API_URL=${API_URL}" >> .env
+      - cat .env
+      - echo "Récupération des paramètres"
+  build:
+    commands:
+      - echo "Construction de l'application..."
+      - npm run build
+  post_build:
+    commands:
+      - echo "Déploiement sur S3..."
+      - aws s3 rm s3://finora-preprod.cyrilmarchive.com --recursive
+      - aws s3 cp ./dist s3://finora-preprod.cyrilmarchive.com --recursive
