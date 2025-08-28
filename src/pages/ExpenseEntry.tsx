@@ -423,7 +423,7 @@ const ExpenseEntry: React.FC = () => {
     // Sécurité UX: ferme le dropdown avant de quitter
     setOpenSuggest(false);
     setActiveIndex(-1);
-    navigate("/dashboard");
+    navigate("/forecast");
   };
 
   if (loading && categories.length === 0) {

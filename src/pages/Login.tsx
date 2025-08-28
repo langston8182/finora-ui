@@ -40,7 +40,7 @@ export function Login() {
     setIsLoading(true);
     try {
       await login(data.email, data.password);
-      navigate('/dashboard');
+      navigate('/forecast');
       toast({
         title: 'Connexion réussie',
         description: 'Bienvenue dans votre espace budget !',

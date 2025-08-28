@@ -104,7 +104,7 @@ const IncomeEntry: React.FC = () => {
   };
 
   const handleCancel = () => {
-    navigate("/dashboard");
+    navigate("/forecast");
   };
 
   return (
