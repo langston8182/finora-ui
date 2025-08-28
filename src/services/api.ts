@@ -311,3 +311,41 @@ export const summaryApi = {
     return handleResponse(response);
   },
 };
+
+// AUTH API
+export const authApi = {
+  callback: async (code: string, state?: string) => {
+    const params = new URLSearchParams();
+    params.append('code', code);
+    if (state) {
+      params.append('state', state);
+    }
+    
+    const response = await fetch(`${API_BASE_URL}/auth/callback?${params.toString()}`, {
+      method: 'GET',
+      headers: getHeaders(),
+      credentials: 'include',
+    });
+    return handleResponse(response);
+  },
+
+  getUserInfo: async (accessToken: string) => {
+    const response = await fetch(`${API_BASE_URL}/auth/userinfo`, {
+      method: 'POST',
+      headers: {
+        ...getHeaders()
+      },
+      credentials: 'include',
+    });
+    return handleResponse(response);
+  },
+
+  signout: async () => {
+    const response = await fetch(`${API_BASE_URL}/auth/signout`, {
+      method: 'GET',
+      headers: getHeaders(),
+      credentials: 'include',
+    });
+    return handleResponse(response);
+  },
+};

@@ -5,6 +5,7 @@ import { Toaster } from './components/ui/toaster';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { Layout } from './components/Layout';
 import { Login } from './pages/Login';
+import { AuthCallback } from './pages/AuthCallback';
 import { FixedExpenses } from './pages/FixedExpenses';
 import { RecurringIncomes } from './pages/RecurringIncomes';
 import { ExpenseEntry } from './pages/ExpenseEntry';
@@ -29,6 +30,7 @@ function App() {
         <div className="min-h-screen bg-gray-50">
           <Routes>
             <Route path="/auth/login" element={<Login />} />
+            <Route path="/auth/callback" element={<AuthCallback />} />
             <Route
               path="/*"
               element={

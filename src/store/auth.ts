@@ -6,6 +6,7 @@ interface AuthStore extends AuthState {
   login: (email: string, password: string) => Promise<void>;
   logout: () => void;
   setUser: (user: User) => void;
+  setAuthData: (user: User, accessToken: string) => void;
 }
 
 export const useAuthStore = create<AuthStore>()(
@@ -17,11 +18,12 @@ export const useAuthStore = create<AuthStore>()(
       
       login: async (email: string, password: string) => {
         // Mock authentication - replace with real API call
-        if (email === 'demo@example.com' && password === 'password') {
+        if (email === 'demo@example.com' && password === 'password' || 
+            email === 'cognito-user@example.com' && password === 'cognito-authenticated') {
           const mockUser: User = {
             id: '1',
             email,
-            fullName: 'Utilisateur Demo'
+            fullName: email === 'cognito-user@example.com' ? 'Utilisateur Cognito' : 'Utilisateur Demo'
           };
           const mockToken = 'mock-jwt-token';
           
@@ -44,7 +46,18 @@ export const useAuthStore = create<AuthStore>()(
       },
       
       setUser: (user: User) => {
-        set({ user });
+        set({ 
+          user,
+          isAuthenticated: true
+        });
+      },
+      
+      setAuthData: (user: User, accessToken: string) => {
+        set({
+          user,
+          accessToken,
+          isAuthenticated: true
+        });
       }
     }),
     {
