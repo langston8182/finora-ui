@@ -54,6 +54,7 @@ export const categoriesApi = {
   getAll: async () => {
     const response = await fetch(`${API_BASE_URL}/categories`, {
       headers: getHeaders(),
+      credentials: 'include',
     });
     return handleResponse(response);
   },
@@ -62,6 +63,7 @@ export const categoriesApi = {
     const response = await fetch(`${API_BASE_URL}/categories`, {
       method: 'POST',
       headers: getHeaders(),
+      credentials: 'include',
       body: JSON.stringify(category),
     });
     return handleResponse(response);
@@ -71,6 +73,7 @@ export const categoriesApi = {
     const response = await fetch(`${API_BASE_URL}/categories/${id}`, {
       method: 'PATCH',
       headers: getHeaders(),
+      credentials: 'include',
       body: JSON.stringify(updates),
     });
     return handleResponse(response);
@@ -80,6 +83,7 @@ export const categoriesApi = {
     const response = await fetch(`${API_BASE_URL}/categories/${id}`, {
       method: 'DELETE',
       headers: getHeaders(),
+      credentials: 'include',
     });
     return handleResponse(response);
   },
@@ -90,6 +94,7 @@ export const expensesApi = {
   getByMonth: async (month: string) => {
     const response = await fetch(`${API_BASE_URL}/expenses?month=${month}`, {
       headers: getHeaders(),
+      credentials: 'include',
     });
     return handleResponse(response);
   },
@@ -104,6 +109,7 @@ export const expensesApi = {
     const response = await fetch(`${API_BASE_URL}/expenses`, {
       method: 'POST',
       headers: getHeaders(),
+      credentials: 'include',
       body: JSON.stringify(expense),
     });
     return handleResponse(response);
@@ -119,6 +125,7 @@ export const expensesApi = {
     const response = await fetch(`${API_BASE_URL}/expenses/${id}`, {
       method: 'PATCH',
       headers: getHeaders(),
+      credentials: 'include',
       body: JSON.stringify(updates),
     });
     return handleResponse(response);
@@ -128,6 +135,7 @@ export const expensesApi = {
     const response = await fetch(`${API_BASE_URL}/expenses/${id}`, {
       method: 'DELETE',
       headers: getHeaders(),
+      credentials: 'include',
     });
     return handleResponse(response);
   },
@@ -138,6 +146,7 @@ export const incomesApi = {
   getByMonth: async (month: string) => {
     const response = await fetch(`${API_BASE_URL}/incomes?month=${month}`, {
       headers: getHeaders(),
+      credentials: 'include',
     });
     return handleResponse(response);
   },
@@ -151,6 +160,7 @@ export const incomesApi = {
     const response = await fetch(`${API_BASE_URL}/incomes`, {
       method: 'POST',
       headers: getHeaders(),
+      credentials: 'include',
       body: JSON.stringify(income),
     });
     return handleResponse(response);
@@ -165,6 +175,7 @@ export const incomesApi = {
     const response = await fetch(`${API_BASE_URL}/incomes/${id}`, {
       method: 'PATCH',
       headers: getHeaders(),
+      credentials: 'include',
       body: JSON.stringify(updates),
     });
     return handleResponse(response);
@@ -174,6 +185,7 @@ export const incomesApi = {
     const response = await fetch(`${API_BASE_URL}/incomes/${id}`, {
       method: 'DELETE',
       headers: getHeaders(),
+      credentials: 'include',
     });
     return handleResponse(response);
   },
@@ -184,6 +196,7 @@ export const fixedExpensesApi = {
   getAll: async () => {
     const response = await fetch(`${API_BASE_URL}/fixed-expenses`, {
       headers: getHeaders(),
+      credentials: 'include',
     });
     return handleResponse(response);
   },
@@ -198,6 +211,7 @@ export const fixedExpensesApi = {
     const response = await fetch(`${API_BASE_URL}/fixed-expenses`, {
       method: 'POST',
       headers: getHeaders(),
+      credentials: 'include',
       body: JSON.stringify(fixedExpense),
     });
     return handleResponse(response);
@@ -213,6 +227,7 @@ export const fixedExpensesApi = {
     const response = await fetch(`${API_BASE_URL}/fixed-expenses/${id}`, {
       method: 'PATCH',
       headers: getHeaders(),
+      credentials: 'include',
       body: JSON.stringify(updates),
     });
     return handleResponse(response);
@@ -222,6 +237,7 @@ export const fixedExpensesApi = {
     const response = await fetch(`${API_BASE_URL}/fixed-expenses/${id}`, {
       method: 'DELETE',
       headers: getHeaders(),
+      credentials: 'include',
     });
     return handleResponse(response);
   },
@@ -232,6 +248,7 @@ export const recurringIncomesApi = {
   getAll: async () => {
     const response = await fetch(`${API_BASE_URL}/recurring-incomes`, {
       headers: getHeaders(),
+      credentials: 'include',
     });
     return handleResponse(response);
   },
@@ -246,6 +263,7 @@ export const recurringIncomesApi = {
     const response = await fetch(`${API_BASE_URL}/recurring-incomes`, {
       method: 'POST',
       headers: getHeaders(),
+      credentials: 'include',
       body: JSON.stringify(recurringIncome),
     });
     return handleResponse(response);
@@ -261,6 +279,7 @@ export const recurringIncomesApi = {
     const response = await fetch(`${API_BASE_URL}/recurring-incomes/${id}`, {
       method: 'PATCH',
       headers: getHeaders(),
+      credentials: 'include',
       body: JSON.stringify(updates),
     });
     return handleResponse(response);
@@ -270,6 +289,7 @@ export const recurringIncomesApi = {
     const response = await fetch(`${API_BASE_URL}/recurring-incomes/${id}`, {
       method: 'DELETE',
       headers: getHeaders(),
+      credentials: 'include',
     });
     return handleResponse(response);
   },
@@ -289,6 +309,7 @@ export const forecastApi = {
     const response = await fetch(`${API_BASE_URL}/forecast/calc`, {
       method: 'POST',
       headers: getHeaders(),
+      credentials: 'include',
       body: JSON.stringify(data),
     });
     return handleResponse(response);
@@ -300,6 +321,7 @@ export const summaryApi = {
   getByMonth: async (month: string) => {
     const response = await fetch(`${API_BASE_URL}/summary?month=${month}`, {
       headers: getHeaders(),
+      credentials: 'include',
     });
     return handleResponse(response);
   },
@@ -307,6 +329,7 @@ export const summaryApi = {
   getLastMonths: async (months: number) => {
     const response = await fetch(`${API_BASE_URL}/summary/last-months?months=${months}`, {
       headers: getHeaders(),
+      credentials: 'include',
     });
     return handleResponse(response);
   },
@@ -324,6 +347,7 @@ export const authApi = {
     const response = await fetch(`${API_BASE_URL}/auth/callback?${params.toString()}`, {
       method: 'GET',
       headers: getHeaders(),
+      credentials: 'include',
       credentials: 'include',
     });
     return handleResponse(response);
