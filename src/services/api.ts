@@ -348,7 +348,6 @@ export const authApi = {
       method: 'GET',
       headers: getHeaders(),
       credentials: 'include',
-      credentials: 'include',
     });
     return handleResponse(response);
   },
@@ -368,8 +367,15 @@ export const authApi = {
     const response = await fetch(`${API_BASE_URL}/auth/signout`, {
       method: 'GET',
       headers: getHeaders(),
-      credentials: 'include',
     });
     return handleResponse(response);
+  },
+
+  signoutNavigate: () => {
+    const redirect = `${window.location.origin}/`; // ex: http://localhost:5173/ ou https://finora-preprod...
+    const url = new URL(`${API_BASE_URL}/auth/signout`);
+    url.searchParams.set('redirect_uri', redirect);
+    console.log('Navigating to:', url.toString());
+    //window.location.href = url.toString();
   },
 };

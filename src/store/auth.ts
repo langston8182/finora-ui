@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import { authApi } from '../services/api';
 import { AuthState, User } from '../types';
 
 interface AuthStore extends AuthState {
@@ -38,6 +39,9 @@ export const useAuthStore = create<AuthStore>()(
       },
       
       logout: () => {
+        // Call API to clear server-side cookies
+        authApi.signoutNavigate();
+        
         set({
           user: null,
           accessToken: null,

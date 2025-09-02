@@ -12,6 +12,7 @@ phases:
       - echo "Création du fichier .env"
       - echo "VITE_API_URL=${API_URL}" >> .env
       - echo "VITE_AWS_LOGIN_URL=${VITE_AWS_LOGIN_URL}" >> .env
+      - echo "AUTH_BASE_URL=${AUTH_BASE_URL}" >> .env
       - cat .env
       - echo "Récupération des paramètres"
   build:
