@@ -39,14 +39,25 @@ export const useAuthStore = create<AuthStore>()(
       },
       
       logout: () => {
-        // Call API to clear server-side cookies
-        authApi.signoutNavigate();
-        
-        set({
-          user: null,
-          accessToken: null,
-          isAuthenticated: false
-        });
+        // Call API to clear server-side cookies and redirect
+        authApi.signout()
+          .then(() => {
+            // Clear local state after successful API call
+            set({
+              user: null,
+              accessToken: null,
+              isAuthenticated: false
+            });
+          })
+          .catch(error => {
+            console.error('Error during signout:', error);
+            // Clear local state even if API call fails
+            set({
+              user: null,
+              accessToken: null,
+              isAuthenticated: false
+            });
+          });
       },
       
       setUser: (user: User) => {

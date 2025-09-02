@@ -30,7 +30,6 @@ function App() {
         <div className="min-h-screen bg-gray-50">
           <Routes>
             <Route path="/auth/login" element={<Login />} />
-            <Route path="/auth/callback" element={<AuthCallback />} />
             <Route
               path="/*"
               element={
@@ -39,7 +38,7 @@ function App() {
                 </ProtectedRoute>
               }
             >
-              <Route index element={<Navigate to="/forecast" replace />} />
+              <Route index element={<Navigate to="/" replace />} />
               <Route path="settings/fixed-expenses" element={<FixedExpenses />} />
               <Route path="settings/recurring-incomes" element={<RecurringIncomes />} />
               <Route path="entry/expense" element={<ExpenseEntry />} />
